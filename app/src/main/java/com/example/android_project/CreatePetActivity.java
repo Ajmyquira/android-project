@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -30,6 +31,8 @@ public class CreatePetActivity extends AppCompatActivity {
 
         this.setTitle("Create Pet");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        String id = getIntent().getStringExtra("id_pet");
         mfirestore = FirebaseFirestore.getInstance();
 
         name = findViewById(R.id.name);
@@ -37,21 +40,59 @@ public class CreatePetActivity extends AppCompatActivity {
         color = findViewById(R.id.color);
         btn_add = findViewById(R.id.btn_add);
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String namepet = name.getText().toString().trim();
-                String agepet = age.getText().toString().trim();
-                String colorpet = color.getText().toString().trim();
+        if(id == null || id == ""){
+            btn_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String namepet = name.getText().toString().trim();
+                    String agepet = age.getText().toString().trim();
+                    String colorpet = color.getText().toString().trim();
 
-                if(namepet.isEmpty() && agepet.isEmpty() && colorpet.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Insert data", Toast.LENGTH_LONG).show();
-                }else{
-                    postPet(namepet, agepet, colorpet);
+                    if(namepet.isEmpty() && agepet.isEmpty() && colorpet.isEmpty()){
+                        Toast.makeText(getApplicationContext(), "Insert data", Toast.LENGTH_LONG).show();
+                    }else{
+                        postPet(namepet, agepet, colorpet);
+                    }
                 }
+            });
+        }else{
+            btn_add.setText("Update");
+            getPet(id);
+            btn_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String namepet = name.getText().toString().trim();
+                    String agepet = age.getText().toString().trim();
+                    String colorpet = color.getText().toString().trim();
+
+                    if(namepet.isEmpty() && agepet.isEmpty() && colorpet.isEmpty()){
+                        Toast.makeText(getApplicationContext(), "Insert data", Toast.LENGTH_LONG).show();
+                    }else{
+                        updatePet(namepet, agepet, colorpet, id);
+                    }
+                }
+            });
+        }
+    }
+
+    private void updatePet(String namepet, String agepet, String colorpet, String id) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("name", namepet);
+        map.put("age", agepet);
+        map.put("color", colorpet);
+
+        mfirestore.collection("pet").document(id).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(),"Updated successfully",Toast.LENGTH_LONG).show();
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"Error updating",Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     private void postPet(String namepet, String agepet, String colorpet) {
@@ -69,7 +110,27 @@ public class CreatePetActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Error adding",Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void getPet(String id) {
+        mfirestore.collection("pet").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String namePet = documentSnapshot.getString("name");
+                String agePet = documentSnapshot.getString("age");
+                String colorPet = documentSnapshot.getString("color");
+
+                name.setText(namePet);
+                age.setText(agePet);
+                color.setText(colorPet);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"Error getting data",Toast.LENGTH_LONG).show();
             }
         });
     }

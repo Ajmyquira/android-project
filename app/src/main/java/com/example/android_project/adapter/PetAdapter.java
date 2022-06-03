@@ -1,6 +1,7 @@
 package com.example.android_project.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android_project.CreatePetActivity;
 import com.example.android_project.R;
 import com.example.android_project.model.Pet;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -48,6 +50,15 @@ public class PetAdapter extends FirestoreRecyclerAdapter<Pet, PetAdapter.ViewHol
         viewHolder.age.setText(Pet.getAge());
         viewHolder.color.setText(Pet.getColor());
 
+        viewHolder.btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(activity, CreatePetActivity.class);
+                i.putExtra("id_pet", id);
+                activity.startActivity(i);
+            }
+        });
+
         viewHolder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +90,7 @@ public class PetAdapter extends FirestoreRecyclerAdapter<Pet, PetAdapter.ViewHol
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, age, color;
-        ImageView btn_delete;
+        ImageView btn_delete, btn_update;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +99,7 @@ public class PetAdapter extends FirestoreRecyclerAdapter<Pet, PetAdapter.ViewHol
             age = itemView.findViewById(R.id.age_view);
             color = itemView.findViewById(R.id.color_view);
             btn_delete = itemView.findViewById(R.id.btn_delete);
+            btn_update = itemView.findViewById(R.id.btn_update);
         }
     }
 }

@@ -59,5 +59,17 @@
             android:background="#B83333"
             android:padding="5dp"
             app:srcCompat="@drawable/ic_delete" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#3D50BB"
+            android:padding="5dp"
+            app:srcCompat="@drawable/ic_edit" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
