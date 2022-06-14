@@ -22,8 +22,12 @@
         <Button
             android:id="@+id/btn_addPet"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add pet" />
+            android:layout_height="60dp"
+            android:fontFamily="@font/nunito"
+            android:text="Agregar mascota"
+            android:textAllCaps="false"
+            android:textSize="18dp"
+            app:cornerRadius="20dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSingle"
