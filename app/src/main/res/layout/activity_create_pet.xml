@@ -5,6 +5,7 @@
     android:id="@+id/btn_addPet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeff1"
     tools:context=".CreatePetActivity">
 
     <LinearLayout
@@ -21,41 +22,91 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:text="Datos de la mascota"
+            android:textColor="#171717"
+            android:textSize="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="38dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombres"
+            android:textColor="#171717"
+            android:textSize="16dp" />
+
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Name"
+            android:hint="Tato Alber..."
             android:inputType="textPersonName"
             android:minHeight="48dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edad "
+            android:textColor="#171717"
+            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Age"
+            android:hint="8..."
             android:inputType="textPersonName"
             android:minHeight="48dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color o raza"
+            android:textColor="#171717"
+            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Color"
+            android:hint="Pitbull blan..."
             android:inputType="textPersonName"
             android:minHeight="48dp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="209dp" />
 
         <Button
             android:id="@+id/btn_add"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add" />
+            android:layout_height="60dp"
+            android:backgroundTint="#FFB51C"
+            android:fontFamily="@font/nunito"
+            android:text="Agregar"
+            android:textAllCaps="false"
+            android:textSize="18dp"
+            app:cornerRadius="20dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
