@@ -56,7 +56,7 @@ public class CreatePetActivity extends AppCompatActivity {
                 }
             });
         }else{
-            btn_add.setText("Update");
+            btn_add.setText("Actualizar");
             getPet(id);
             btn_add.setOnClickListener(new View.OnClickListener() {
                 @Override

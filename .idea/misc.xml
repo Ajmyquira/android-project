@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android studio/android-project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2595" />
+        <entry key="..\:/Android studio/android-project/app/src/main/res/drawable/ic_edit.xml" value="0.2595" />
+        <entry key="..\:/Android studio/android-project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2595" />
         <entry key="..\:/Android studio/android-project/app/src/main/res/layout/activity_create_pet.xml" value="0.25" />
+        <entry key="..\:/Android studio/android-project/app/src/main/res/layout/activity_intro.xml" value="0.25416666666666665" />
         <entry key="..\:/Android studio/android-project/app/src/main/res/layout/activity_main.xml" value="0.21403508771929824" />
         <entry key="..\:/Android studio/android-project/app/src/main/res/layout/view_pet_single.xml" value="0.26875" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/android-project/app/src/main/res/layout/activity_create_pet.xml" value="0.22826086956521738" />
