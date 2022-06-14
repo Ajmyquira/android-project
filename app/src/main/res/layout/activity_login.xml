@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".LoginActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="399dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            tools:layout_editor_absoluteX="33dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="286dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/forgetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_marginLeft="160dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="Olvido sus datos?"
+            android:textColor="#FF9800"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="177dp"
+            tools:layout_editor_absoluteY="353dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Ingresar"
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="419dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/registerText"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:text="No tiene una cuenta?"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="514dp" />
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="225dp"
+            android:text="Registrar"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="200dp"
+            tools:layout_editor_absoluteY="501dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="267dp"
+        android:layout_height="194dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/e5e9e728ae42dcf0fb8e46f0abb85190" />
+</androidx.constraintlayout.widget.ConstraintLayout>
