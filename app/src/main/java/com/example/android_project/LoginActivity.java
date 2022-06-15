@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        this.setTitle("Login");
 
         forgetButton = findViewById(R.id.forgetButton);
         loginButton = findViewById(R.id.loginButton);
@@ -38,14 +39,14 @@ public class LoginActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startActivity(new Intent(LoginActivity.this, registerActivity.class));
             }
         });
 
         forgetButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                Toast.makeText(LoginActivity.this, "Contacte con los desarrolladores", Toast.LENGTH_LONG).show();
             }
         });
 
