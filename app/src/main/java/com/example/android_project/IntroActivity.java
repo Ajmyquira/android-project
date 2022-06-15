@@ -12,12 +12,13 @@ public class IntroActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+        this.setTitle("VetCare");
 
         buttonC = (Button) findViewById(R.id.buttonC);
         buttonC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent buttonC = new Intent(IntroActivity.this, MainActivity.class);
+                Intent buttonC = new Intent(IntroActivity.this, LoginActivity.class);
                 startActivity(buttonC);
             }
         });
